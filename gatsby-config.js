@@ -1,16 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Gatsby Recipes`,
+    description: `Returning posts from the Meal DB API using Gatsby JS, React and graphQL`,
+    author: `Euan`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
       },
     },
     `gatsby-transformer-sharp`,
