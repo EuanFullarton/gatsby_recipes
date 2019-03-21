@@ -10,6 +10,13 @@ const Recipes = () => (
         <h1 class="p-3">Latest recipes</h1>
       </div>
       <div class="row">
+        <ul>
+          <li>Categories</li>
+          <li>to go</li>
+          <li>here</li>
+        </ul>
+      </div>
+      <div class="row">
         <RecipeList endpoint="https://www.themealdb.com/api/json/v1/1/latest.php" />
       </div>
     </div>

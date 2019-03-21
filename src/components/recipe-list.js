@@ -14,7 +14,26 @@ class RecipeList extends Component {
             .then(response => response.json())
             .then(data => this.setState({ data }))
             .catch(err => console.error('Error ', err.toString()));
+    }
 
+    listIngredients = (recipe) => {
+        const   ingredientKeys = [];
+        let     ingredients = [];
+
+        Object.keys(recipe).forEach(function (key, index) {
+            if (key.indexOf('strIngredient') !== -1) {
+                ingredientKeys.push(key);
+            }
+        });
+
+        for (let i = 0; i < ingredientKeys.length; i++) {
+            if (recipe[ingredientKeys[i]] !== "") {
+                ingredients.push(recipe[ingredientKeys[i]]);
+            }
+        }
+
+        ingredients = ingredients.join(', ');
+        return ingredients;
     }
 
     render() {
@@ -23,15 +42,15 @@ class RecipeList extends Component {
                 return (
                     <div class="col-xs-12 col-sm-6 col-lg-4 recipe" key={recipe.idMeal}>
                         <a href={recipe.strSource}>
-                            <img src={recipe.strMealThumb} />
+                            <div class="img-container">
+                                <img src={recipe.strMealThumb} />
+                            </div>
+                            <div class="ingredients">
+                                <p>Ingredients:</p>
+                                <p>{this.listIngredients(recipe)}</p>
+                            </div>
+                            <p>{recipe.strMeal}</p>
                         </a>
-                        <div class="ingredients">
-                            <p>Ingredients:</p>
-                            <p>
-                                {recipe.strIngredient1}, {recipe.strIngredient2}, {recipe.strIngredient3}, {recipe.strIngredient4}
-                            </p>
-                        </div>
-                        <p>{recipe.strMeal}</p>
                     </div>
                 )
             });
