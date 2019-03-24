@@ -5,7 +5,8 @@ class RecipeList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: {}
+            data: {},
+            heading: "Latest"
         };
     }
 
@@ -32,20 +33,24 @@ class RecipeList extends Component {
             }
         }
 
-        ingredients = ingredients.join(', ');
-        return ingredients;
+        if (ingredients.length > 0) {
+            ingredients = ingredients.join(', ');
+            return ingredients;
+        } else {
+            return <a href={"https://www.themealdb.com/meal.php?c=" + recipe.idMeal}>View on MealDB</a>;
+        }
     }
 
     render() {
         if (this.state.data.meals) {
             let recipes = this.state.data.meals.map((recipe) => {
                 return (
-                    <div class="col-xs-12 col-sm-6 col-lg-4 recipe" key={recipe.idMeal}>
+                    <div className="col-xs-12 col-sm-6 col-lg-4 recipe" key={recipe.idMeal}>
                         <a href={recipe.strSource}>
-                            <div class="img-container">
+                            <div className="img-container">
                                 <img src={recipe.strMealThumb} />
                             </div>
-                            <div class="ingredients">
+                            <div className="ingredients">
                                 <p>Ingredients:</p>
                                 <p>{this.listIngredients(recipe)}</p>
                             </div>

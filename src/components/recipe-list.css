@@ -41,6 +41,11 @@
     width: 80%;
 }
 
+.ingredients a, .ingredients a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
 .recipe .ingredients p {
     color: #fff;
 }
