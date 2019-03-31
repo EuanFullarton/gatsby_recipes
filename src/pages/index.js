@@ -13,24 +13,21 @@ if (window.location.search !== '') {
 const Recipes = () => (
   <Layout>
     <div className="container">
-      <div className="row">
-        <h1 className="p-3">Latest recipes</h1>
-      </div>
-      <div className="row">
+      <div className="row py-3">
         <div className="col">
           <h6>Categories: </h6>
           <ul className="p-0">
-            <li>
-              <a href="/">
-                All
-              </a>
-            </li>            
+            <li id="show-all" className="active">
+              <a href="/">All</a>
+            </li>
             <Categories endpoint="https://www.themealdb.com/api/json/v1/1/categories.php" />
           </ul>
         </div>
       </div>
       <div className="row">
-        <RecipeList endpoint={"https://www.themealdb.com/api/json/v1/1/" + category} />
+        <RecipeList
+          endpoint={"https://www.themealdb.com/api/json/v1/1/" + category}
+        />
       </div>
     </div>
   </Layout>

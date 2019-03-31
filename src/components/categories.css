@@ -1,5 +1,6 @@
 li {
     background-color: rebeccapurple;
+    border: 1px solid rebeccapurple;
     border-radius: 25px;
     display: inline-block;
     list-style: none;
@@ -7,6 +8,23 @@ li {
     padding: 5px 20px;
 }
 
+li:hover {
+    background: #fff;
+}
+
 li a, li a:hover {
     color: #fff;
+    text-decoration: none;
+}
+
+li:hover a, li a:hover {
+    color: rebeccapurple;
+}
+
+li.active {
+    background: #fff;
+}
+
+li.active a {
+    color: rebeccapurple;
 }
